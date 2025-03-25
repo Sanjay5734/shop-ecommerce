@@ -3,9 +3,10 @@ import Item from "../Item/Item";
 
 import "./Popular.css";
 const Popular = () => {
+  const url = "https://backend-eccomerce-oyd3.onrender.com"
   const [popularProducts, setpopularProduct] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/popularinwomen")
+    fetch(url + "popularinwomen")
       .then((response) => response.json())
       .then((data) => setpopularProduct(data));
   }, []);

@@ -10,7 +10,7 @@ const getDefaulterCart = () => {
   return cart;
 };
 const ShopContextProvider = (props) => {
-  const url = "https://backend-eccomerce-oyd3.onrender.com"
+  const url = "https://backend-eccomerce-oyd3.onrender.com";
   const [all_product, setAll_product] = useState([]);
   const [cartItems, setCartItems] = useState(getDefaulterCart());
   useEffect(() => {
