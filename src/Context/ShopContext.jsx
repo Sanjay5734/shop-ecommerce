@@ -10,15 +10,16 @@ const getDefaulterCart = () => {
   return cart;
 };
 const ShopContextProvider = (props) => {
+  const url = "https://backend-eccomerce-oyd3.onrender.com"
   const [all_product, setAll_product] = useState([]);
   const [cartItems, setCartItems] = useState(getDefaulterCart());
   useEffect(() => {
-    fetch("http://localhost:4000/allproduct")
+    fetch(url + "/allproduct")
       .then((response) => response.json())
       .then((data) => setAll_product(data));
 
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/getcart", {
+      fetch(url + "/getcart", {
         method: "POST",
         headers: {
           Accept: "application/form-data",
@@ -34,7 +35,7 @@ const ShopContextProvider = (props) => {
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/addtocart", {
+      fetch(url + "/addtocart", {
         method: "POST",
         headers: {
           Accept: "application/form-data",
@@ -50,7 +51,7 @@ const ShopContextProvider = (props) => {
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/removefromcart", {
+      fetch(url + "/removefromcart", {
         method: "POST",
         headers: {
           Accept: "application/form-data",
