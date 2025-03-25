@@ -12,7 +12,7 @@ const LoginSignup = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const login = async () => {
-    console.log("Signup Function Executed", formData);
+    // console.log("Signup Function Executed", formData);
     let responseData;
     await fetch(url + "/login", {
       method: "POST",
@@ -36,7 +36,7 @@ const LoginSignup = () => {
     }
   };
   const signup = async () => {
-    console.log("Signup Function Executed", formData);
+    // console.log("Signup Function Executed", formData);
     let responseData;
     await fetch(url + "/signup", {
       method: "POST",
